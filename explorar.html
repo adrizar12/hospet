@@ -1,0 +1,15 @@
+
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Explorar - Hospet</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="header"><div class="logo">Hospet</div><nav class="nav"><ul><li><a href="index.html">Inicio</a></li><li><a href="mapa.html">Mapa</a></li></ul></nav></header>
+<section class="hero" style="background:none;padding:2rem 1rem;"><h2>Explorar hospedajes</h2>
+<input id="search" placeholder="Buscar..." style="padding:.6rem;width:260px;border:1px solid #ccc;border-radius:6px"></section>
+<div class="cards" id="results"></div>
+<script>
+const hosts=[{"slug": "ana-rodriguez", "name": "Ana Rodr\u00edguez", "loc": "San Francisco", "rating": "4.8", "img": "https://placekitten.com/300/200"}, {"slug": "luis-familia", "name": "Luis y familia", "loc": "Betania", "rating": "4.7", "img": "https://placekitten.com/301/200"}, {"slug": "carmen-v", "name": "Carmen V.", "loc": "Clayton", "rating": "5.0", "img": "https://placekitten.com/302/200"}, {"slug": "diego-sofia", "name": "Diego y Sof\u00eda", "loc": "Brisas del Golf", "rating": "4.6", "img": "https://placekitten.com/303/200"}, {"slug": "mariana-gomez", "name": "Mariana G\u00f3mez", "loc": "Obarrio", "rating": "4.9", "img": "https://placekitten.com/304/200"}, {"slug": "roberto-diaz", "name": "Roberto D\u00edaz", "loc": "El Cangrejo", "rating": "4.7", "img": "https://placekitten.com/305/200"}, {"slug": "laura-paniagua", "name": "Laura Paniagua", "loc": "Albrook", "rating": "5.0", "img": "https://placekitten.com/306/200"}, {"slug": "andres-sanchez", "name": "Andr\u00e9s S\u00e1nchez", "loc": "Costa del Este", "rating": "4.6", "img": "https://placekitten.com/307/200"}, {"slug": "keila-hernandez", "name": "Keila Hern\u00e1ndez", "loc": "Bella Vista", "rating": "4.8", "img": "https://placekitten.com/308/200"}, {"slug": "jose-ibarra", "name": "Jos\u00e9 Ibarra", "loc": "Via Espa\u00f1a", "rating": "4.7", "img": "https://placekitten.com/309/200"}];
+const cont=document.getElementById('results');
+function render(list){cont.innerHTML=list.map(h=>`<div class='card'><a href='${h.slug}.html'><img src='${h.img}'><div class='card-info'><h3>${h.name}</h3><p>${h.loc} · ${h.rating}⭐</p></div></a></div>`).join('');}
+render(hosts);
+document.getElementById('search').addEventListener('input',e=>{const v=e.target.value.toLowerCase();render(hosts.filter(h=>h.name.toLowerCase().includes(v)||h.loc.toLowerCase().includes(v)));});
+</script>
+<footer class="footer">© 2025 Hospet</footer></body></html>
